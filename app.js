@@ -71,7 +71,7 @@ if(String(agent).match('Macintosh')&&String(agent).match('Edg')){
   streamingType = 'dash';
 }
 
-var drmType = 'Widevine';
+var drmType = drmType;
 var token = (
   {
     'playback_policy' : (
