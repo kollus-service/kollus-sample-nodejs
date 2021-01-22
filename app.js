@@ -15,7 +15,7 @@ const contentID = ''; // 업로드 파일 키
 const accessKey = ''; // 잉카 팰리컨 콘솔 -> drm setting -> Access Key
 const siteKey = ''; // 잉카 팰리컨 콘솔 -> drm setting -> Site Key
 const siteID = ''; // 잉카 팰리컨 콘솔 -> drm setting -> Site ID
-const clientUserId = ''; //홈페이지 사용자ㅏ 아이디
+const clientUserId = ''; //홈페이지 사용자 아이디
 const iv = '0123456789abcdef';
 
 
