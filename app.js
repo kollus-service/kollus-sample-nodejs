@@ -46,15 +46,15 @@ switch(userBrowser){
     streamingType = 'dash';
     break;
   case 'Chrome':
-      drmType = 'Widebine';
+      drmType = 'Widevine';
       streamingType = 'dash';
       break;
   case 'Firefox':
-        drmType = 'Widebine';
+        drmType = 'Widevine';
         streamingType = 'dash';
         break;
   case 'Opera':
-        drmType = 'Widebine';
+        drmType = 'Widevine';
         streamingType = 'dash';
         break;
   case 'Safari':
