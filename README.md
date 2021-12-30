@@ -1,1 +1,0 @@
-# kollus-sample-nodejs
