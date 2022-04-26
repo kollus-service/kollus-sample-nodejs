@@ -1,4 +1,3 @@
-var app = require('express')();
 const https = require('https');
 const fs = require('fs');
 const crypto = require('crypto');
@@ -19,13 +18,14 @@ const clientUserId = ''; //홈페이지 사용자 아이디
 const iv = '0123456789abcdef';
 
 
-var agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36'; //샘플 유저 에이전트
+var agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'; //샘플 유저 에이전트
 var supportBrowser = ['CriOS','Edge','Edg','FireFox','Chrome','Safari','Opera','MSIE','Trident'];
 var userBrowser = '';
 var steamingType = '';
-supportBrowser.forEach(function(arr){
+supportBrowser.some(function(arr){
   if(String(agent).match(arr)){
     userBrowser = arr;
+	return true;
   }
 });
 switch(userBrowser){
@@ -71,7 +71,22 @@ if(String(agent).match('Macintosh')&&String(agent).match('Edg')){
   streamingType = 'dash';
 }
 
-var drmType = drmType;
+//var drmType = drmType;
+if(drmType=='Widevine'){
+	var token = ({
+			'policy_version' : 2,
+			'playback_policy' : ({
+				'persistent' : false,
+				'license_duration' : 0
+			}),
+			'security_policy' : ({
+					'widevine' : ({
+						'override_device_revocation' : true
+})
+				})
+	}		);
+}
+
 var token = (
   {
     'playback_policy' : (
@@ -113,7 +128,7 @@ inkaPayload = Buffer.from(inkaPayload).toString('base64');
 
 var payload = (
 	{
-		'expt' : 1640822400,
+		'expt' : 1767139200,
 		'cuid' : clientUserId,
 		'mc' : (
 			[{
