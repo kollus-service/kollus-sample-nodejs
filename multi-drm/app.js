@@ -79,14 +79,14 @@ if(drmType=='Widevine'){
 				'persistent' : false,
 				'license_duration' : 0
 			}),
-			'security_policy' : ({
-					'widevine' : ({
+			'security_policy' : [{
+					'widevine' : {
 						'override_device_revocation' : true
-})
-				})
+}
+				}]
 	}		);
 }
-
+else{
 var token = (
   {
     'playback_policy' : (
@@ -100,7 +100,7 @@ var token = (
     'playready_security_level' : 150
   }
 );
-
+}
 token = JSON.stringify(token);
 const cipher = crypto.createCipheriv('aes-256-cbc', siteKey, iv);
 token = cipher.update(token, 'utf8', 'base64');
